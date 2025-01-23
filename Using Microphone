@@ -1,0 +1,11 @@
+import speech_recognition as sr
+r=sr.Recognizer() #Initialize the Recognizer
+with sr.Microphone() as source:
+    print("Speak Anything:")
+    audio=r.listen(source) #reads the audio file
+try:
+    print("audio file contains "+r.recognize_google(audio))
+except sr.UnknownValueError:
+    print("google speech recognition could not understand audio")
+except sr.RequestError:
+    print("could not get the results from google speech recognition")
